@@ -23,8 +23,6 @@ Things you may want to cover:
 
 * ...
 
-## フリマアプリ課題 DB設計
-
 ## userテーブル
 
 | column          | Type      | Options
@@ -35,16 +33,14 @@ Things you may want to cover:
 | last_name       | string    | null: false
 | first_name_kana | string    | null: false
 | last_name_kana  | string    | null: false
-| birth_1i        | date      | null: false
-| birth_2i        | date      | null: false
-| birth_3i        | date      | null: false
+| birth_date      | date      | null: false
 | email           | string    | null: false, index: true
 
 ### Association
 
 - has_many :comments.dependent:destroy
-- has_one :card.dependent:destroy
-- has_one :purchases.dependent:destroy
+- has_many :items
+- has_many :purchases.dependent:destroy
 
 ## items
 
@@ -55,6 +51,9 @@ Things you may want to cover:
 | item_info        | text      |
 | category         | integer   | null: false
 | status           | integer   | null: false
+| delivery_fee     | integer   | null: false
+| shipping_area    | integer   | null: false
+| delivery_days    | integer   | null: false
 | user_id          | integer   | null: false, foreigh_key: true 
 
 ### Association
@@ -72,25 +71,11 @@ Things you may want to cover:
 | addresses        | string    | null: false
 | building         | string    | 
 | phone            | integer   | null: false
-| user_id          | integer   | null: false, foreigh_key: true
+| purchase_id      | integer   | null: false, foreigh_key: true
 
 ### Association
 
 - belong_to :purchases
-
-## card
-
-| column           | Type      | Options
-| ---------------- | --------- | --------------------------------
-| card_number      | integer   | null: false
-| year             | integer   | null: false
-| month            | integer   | null: false
-| security_number  | integer   | null: false
-| user_id          | integer   | null: false, foreigh_key: true
-
-### Association
-
-- belong_to :user
 
 ## purchases
 
@@ -102,5 +87,5 @@ Things you may want to cover:
 ### Association
 
 - belong_to :user
-- belong_to :user
+- belong_to :items
 - has_one :address.dependent:destroy
