@@ -49,33 +49,33 @@ Things you may want to cover:
 | name             | string    | null: false
 | price            | integer   | null: false
 | item_info        | text      |
-| category         | integer   | null: false
-| status           | integer   | null: false
-| delivery_fee     | integer   | null: false
-| shipping_area    | integer   | null: false
-| delivery_days    | integer   | null: false
-| user_id          | integer   | null: false, foreigh_key: true 
+| category_id      | integer   | null: false
+| status_id        | integer   | null: false
+| delivery_fee_id  | integer   | null: false
+| shipping_area_id | integer   | null: false
+| delivery_days_id | integer   | null: false
+| user_id          | integer   | null: false, foreign_key: true 
 
 ### Association
 
-- has_one :purchases.dependent:destroy
+- has_one :purchase.dependent:destroy
 - has_many :comments.dependent:destroy
 
 ## address
 
 | column           | Type      | Options
 | ---------------- | --------- | --------------------------------
-| post_codo        | integer   | null: false
-| prefecture       | string    | null: false
+| post_codo        | string    | null: false
+| prefecture_id    | integer   | null: false
 | city             | string    | null: false
 | addresses        | string    | null: false
 | building         | string    | 
-| phone            | integer   | null: false
-| purchase_id      | integer   | null: false, foreigh_key: true
+| phone            | string    | null: false
+| purchases_id     | integer   | null: false, foreign_key: true
 
 ### Association
 
-- belong_to :purchases
+- belongs_to :purchase
 
 ## purchases
 
@@ -86,6 +86,18 @@ Things you may want to cover:
 
 ### Association
 
-- belong_to :user
-- belong_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :address.dependent:destroy
+
+## comments
+
+| column           | Type      | Options
+| ---------------- | --------- | -----------
+| user_id          | integer   | null: false, foreign_key: true
+| items_id         | integer   | null: false, foreign_key: true
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
