@@ -38,7 +38,6 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :comments.dependent:destroy
 - has_many :items
 - has_many :purchases.dependent:destroy
 
@@ -59,7 +58,6 @@ Things you may want to cover:
 ### Association
 
 - has_one :purchase.dependent:destroy
-- has_many :comments.dependent:destroy
 
 ## address
 
