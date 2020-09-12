@@ -39,7 +39,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :purchases.dependent:destroy
+- has_many :purchases.dependent: :destroy
 
 ## items
 
@@ -86,4 +86,4 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address.dependent:destroy
+- has_one :address.dependent: :destroy
