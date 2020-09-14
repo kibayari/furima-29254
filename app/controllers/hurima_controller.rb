@@ -1,0 +1,2 @@
+class HurimaController < ApplicationController
+end
