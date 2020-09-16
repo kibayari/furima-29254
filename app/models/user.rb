@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :first_name, presence: true, length: { maximum: 20 }
-  validates :last_neme, presence: true, length: { maximum: 20 }
+  validates :last_name, presence: true, length: { maximum: 20 }
   validates :first_name, presence: true, length: { maximum: 20 }
   validates :last_name, presence: true, length: { maximum: 20 }
   validates :password, presence: true, length: { maximum: 20 }
