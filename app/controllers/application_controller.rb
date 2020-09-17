@@ -1,7 +1,4 @@
 class ApplicationController < ActionController::Base
-  #ログインしていないユーザーをログイン画面に
-  # before_action :authenticate_user!
-  
   # データーベースへのカラム内容の保存許可
   before_action :configure_permitted_parameters, if: :devise_controller?
 
