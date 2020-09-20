@@ -23,6 +23,9 @@ class ItemsController < ApplicationController
  def update
  end
 
+ def post
+ end
+ 
  def show
  end
 
