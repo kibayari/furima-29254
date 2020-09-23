@@ -13,10 +13,10 @@ class Item < ApplicationRecord
 
 
   with_options presence: true do
-    validates :name, format: { with: /\A[ぁ-んァ-ン一-龥]/ } , length: { maximum: 40 } 
-    validates :item_info, format: { with: /\A[ぁ-んァ-ン一-龥]/ } , length: { maximum: 1000 } 
+    validates :name, length: { maximum: 40 } 
+    validates :item_info, length: { maximum: 1000 } 
     validates :category_id, :status_id, :delivery_fee_id, :shipping_area_id, :delivery_day_id, numericality: { other_than: 1 } # 空で投稿出来ないように追記
     validates :image     # 空で投稿出来ないように追記
-    validates :price, format: { with: /\A[0-9]+\z/ } ,numericality: { less_than_or_equal_to: 9999999  }  #全て半角数字、且つ¥9.999.999-まで。
+    validates :price, format: { with: /\A[0-9]+\z/ } ,numericality: { less_than_or_equal_to: 9999999, greater_than_or_equal_to: 300 }  #全て半角数字、且つ¥300~¥9.999.999-まで。
   end
 end

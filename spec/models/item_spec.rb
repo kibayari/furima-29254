@@ -87,20 +87,14 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price can't be blank") 
     end
     
-    it "item_infoが1000文字以上であれば登録できないこと " do
+    it "商品情報が1000文字以上であれば登録できないこと " do
       @item.item_info = "1001"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Item info is invalid")      
+      expect(@item.errors.full_messages).to include()      
     end
 
-    it "nameが40文字以上であれば登録できないこと " do
+    it "商品名が40文字以上であれば登録できないこと " do
       @item.name = "41" 
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Name is invalid")
-    end
-
-    it "値段が300以下であれば登録できないこと " do
-      @item.price = "299"
       @item.valid?
       expect(@item.errors.full_messages).to include()
     end
@@ -109,6 +103,12 @@ RSpec.describe Item, type: :model do
       @item.price = "８００"
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not a number")
+    end
+
+    it "値段が¥300以下であれば登録できないこと " do
+      @item.price = "299"
+      @item.valid?
+      expect(@item.errors.full_messages).to include()
     end
 
     it "値段が¥9,999,999以上だと登録できないこと " do
