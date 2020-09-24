@@ -2,11 +2,11 @@ FactoryBot.define do
   factory :item do
     name             {"テストタイトル"} 
     item_info        {"商品状態テスト ABC abc 123 １２３"} 
-    category_id      {"2"}
-    status_id        {"2"}
-    delivery_fee_id  {"2"}
-    shipping_area_id {"2"}
-    delivery_day_id  {"2"}
+    genre_id         {"2"}
+    comdition_id     {"2"}
+    delivery_id      {"2"}
+    shipping_id      {"2"}
+    deliberyday_id   {"2"}
     price            {"500"}
 
     after(:build) do |item|

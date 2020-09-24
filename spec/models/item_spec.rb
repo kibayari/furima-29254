@@ -22,63 +22,63 @@ RSpec.describe Item, type: :model do
     end
 
     it "カテゴリーの選択がない場合は登録できないこと" do
-      @item.category_id = ""  
+      @item.genre_id = ""  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank") 
+      expect(@item.errors.full_messages).to include("Genre can't be blank") 
     end
 
     it "カテゴリーの選択が「--」の場合は登録できないこと" do
-      @item.category_id = "1"  
+      @item.genre_id = "1"  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1") 
+      expect(@item.errors.full_messages).to include("Genre must be other than 1") 
     end
 
     it "商品の状態の選択がない場合は登録できないこと" do
-      @item.status_id = ""  
+      @item.comdition_id = ""  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status can't be blank") 
+      expect(@item.errors.full_messages).to include("Comdition can't be blank") 
     end
 
     it "商品の状態の選択が「--」の場合は登録できないこと" do
-      @item.status_id = "1"  
+      @item.comdition_id = "1"  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status must be other than 1") 
+      expect(@item.errors.full_messages).to include("Comdition must be other than 1") 
     end
 
     it "発送料の負担の選択がない場合は登録できないこと" do
-      @item.delivery_fee_id = ""  
+      @item.delivery_id = ""  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery fee can't be blank") 
+      expect(@item.errors.full_messages).to include("Delivery can't be blank") 
     end
 
     it "発送料の選択が「--」の場合は登録できないこと" do
-      @item.delivery_fee_id = "1"  
+      @item.delivery_id = "1"  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery fee must be other than 1") 
+      expect(@item.errors.full_messages).to include("Delivery must be other than 1") 
     end
 
     it "発送元の地域の選択がない場合は登録できないこと" do
-      @item.shipping_area_id = ""  
+      @item.shipping_id = ""  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping area can't be blank") 
+      expect(@item.errors.full_messages).to include("Shipping can't be blank") 
     end
 
     it "発送元の選択が「--」の場合は登録できないこと" do
-      @item.shipping_area_id = "1"  
+      @item.shipping_id = "1"  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping area must be other than 1") 
+      expect(@item.errors.full_messages).to include("Shipping must be other than 1") 
     end
 
     it "発送までの日数の選択がない場合は登録できないこと" do
-      @item.delivery_day_id = ""  
+      @item.deliberyday_id = ""  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery day can't be blank") 
+      expect(@item.errors.full_messages).to include("Deliberyday can't be blank") 
     end
 
     it "発送の選択が「--」の場合は登録できないこと" do
-      @item.delivery_day_id = "1"  
+      @item.deliberyday_id = "1"  
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery day must be other than 1") 
+      expect(@item.errors.full_messages).to include("Deliberyday must be other than 1") 
     end
 
     it "価格の入力がない場合は登録できないこと" do
