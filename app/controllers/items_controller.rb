@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
 
- def new
+
+  def index
+   @items = Item.all.order("created_at DESC")
+  end
+
+  def new
    @item = Item.new
  end
 
@@ -21,6 +26,7 @@ class ItemsController < ApplicationController
  end
 
  def show
+  
  end
 
  private
