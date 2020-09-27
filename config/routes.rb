@@ -6,4 +6,5 @@ Rails.application.routes.draw do
  
   resources :user
   resources :items
+  resources :orders, only:[:create]
 end
