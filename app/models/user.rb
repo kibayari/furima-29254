@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :purchases, dependent: :destroy
+  has_many :orders
 
   with_options presence: true do
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
