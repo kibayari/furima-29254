@@ -1,9 +1,17 @@
 class OrdersController < ApplicationController
+  
+  before_action :authenticate_user!, only: [:edit, :index]
+
   def index
     @item = Item.find(params[:item_id])
   end
 
-  
+  def edit
+    if current_user.id != @user_orders.user_id
+       redirect_to root_path
+    end
+  end
+
   def create
     @user_orders = UserOrders.new(order_params)
     if @user_orders.valid?
