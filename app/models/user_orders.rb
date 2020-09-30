@@ -14,6 +14,6 @@ class UserOrders
     # 購入者の情報を保存
     order = Order.create(user_id: user_id, item_id: item_id)
     # 住所の情報を保存
-    Address.create(post_codo: post_codo, city: city, addresses: addresses, building: building, phone: phone, order_id: order.id) 
+    Address.create(post_codo: post_codo, shipping_id: shipping_id, city: city, addresses: addresses, building: building, phone: phone, order_id: order.id) 
   end
 end
