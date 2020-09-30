@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2020_09_27_043101) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_codo", null: false
-    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "addresses", null: false
     t.string "building", null: false
@@ -72,14 +71,6 @@ ActiveRecord::Schema.define(version: 2020_09_27_043101) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "price", null: false
-    t.integer "user_id", null: false
-    t.integer "item_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
