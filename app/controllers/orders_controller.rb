@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
+    @user_orders = UserOrders.new
   end
 
   def edit
@@ -18,6 +19,7 @@ class OrdersController < ApplicationController
       @user_orders.save
       redirect_to root_path
     else
+      @item = Item.find(params[:item_id])
       render :index
     end
   end
@@ -30,7 +32,7 @@ class OrdersController < ApplicationController
 
   def pay_item
     @item = Item.find(params[:item_id])
-    Payjp.api_key = "sk_test_6528c01e805d7c02039be1a6"  # PAY.JPテスト秘密鍵
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
     Payjp::Charge.create(
       amount: @item.price,           # 商品の値段  
       card: order_params[:token],    # カードトークン
