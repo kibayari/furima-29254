@@ -8,6 +8,7 @@ class UserOrders
    validates :city,length: { maximum: 50 } 
    validates :addresses,length: { maximum: 50 }
    validates :phone,length: { maximum: 20 }
+   validates :token
   end
 
   def save
