@@ -36,10 +36,21 @@ RSpec.describe UserOrders, type: :model do
       expect(@user_orders.errors.full_messages).to include("Addresses can't be blank")
     end
   
-    it "phoneが11文字以上であれば登録できないこと " do
+    it "phoneが11桁以内でないと登録できないこと " do
       @user_orders.phone = Faker::Lorem.characters(number:12)
       @user_orders.valid?
       expect(@user_orders.errors.full_messages).to include("Phone is too long (maximum is 11 characters)")
+    end
+
+    it 'phoneが半角のハイフンを含んでいると保存ができないこと' do
+      @user_orders.phone = '090-0009999'
+      @user_orders.valid?
+      expect(@user_orders.errors.full_messages).to include("Phone is invalid")
+    end
+
+    it 'buildingは空でも保存できること' do
+      @user_orders.building = ""
+      expect(@user_orders).to be_valid
     end
   end
 end
