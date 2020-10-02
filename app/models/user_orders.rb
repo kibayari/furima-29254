@@ -7,7 +7,7 @@ class UserOrders
    validates :phone, format: { with: /\A[0-9]+\z/},length: { maximum: 11 } 
    validates :city,length: { maximum: 50 } 
    validates :addresses,length: { maximum: 50 }
-   validates :phone,length: { maximum: 20 }
+   validates :phone, format: {with: /\A\d{10,11}\z/}
    validates :token
   end
 
