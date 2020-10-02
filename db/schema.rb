@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_072250) do
+ActiveRecord::Schema.define(version: 2020_09_27_043101) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 2020_09_21_072250) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_codo", null: false
-    t.integer "prefecture_id", null: false
+    t.integer "shipping_id", null: false
     t.string "city", null: false
     t.string "addresses", null: false
     t.string "building", null: false
     t.string "phone", null: false
-    t.integer "purchases_id", null: false
+    t.integer "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 2020_09_21_072250) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "items_id", null: false
+    t.integer "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

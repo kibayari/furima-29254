@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    # permitの引数の指定？
     params.require(:user).permit(:name, :email)
   end
 

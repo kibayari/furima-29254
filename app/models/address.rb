@@ -1,3 +1,3 @@
 class Address < ApplicationRecord
-  elongs_to :purchases
+  belongs_to :order
 end
