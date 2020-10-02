@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   
-  before_action :authenticate_user!, only: [:edit, :index]
-  before_action :set_orders, only: [:index, :pay_item]
+  before_action :authenticate_user!, only: [:index]
+  before_action :set_orders, only: [:index, :create]
 
 
   def index
@@ -11,15 +11,10 @@ class OrdersController < ApplicationController
     end 
   end
 
-  def edit
-    if current_user.id != @user_orders.user_id
-       redirect_to root_path
-    end
-  end
-
   def create
     @user_orders = UserOrders.new(order_params)
     if @user_orders.valid?
+      pay_item
       @user_orders.save
       redirect_to root_path
     else
