@@ -39,7 +39,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :purchases.dependent: :destroy
+- has_many :orders.dependent: :destroy
 
 ## items
 
@@ -48,34 +48,35 @@ Things you may want to cover:
 | name             | string    | null: false
 | price            | integer   | null: false
 | item_info        | text      |
-| category_id      | integer   | null: false
-| status_id        | integer   | null: false
-| delivery_fee_id  | integer   | null: false
-| shipping_area_id | integer   | null: false
-| delivery_days_id | integer   | null: false
+| genre_id         | integer   | null: false
+| comdition_id     | integer   | null: false
+| delivery_id      | integer   | null: false
+| shipping_id      | integer   | null: false
+| deliveryday_id   | integer   | null: false
 | user_id          | integer   | null: false, foreign_key: true 
 
 ### Association
 
-- has_one :purchase.dependent:destroy
+- has_one :order.dependent:destroy
+- belongs_to :user
 
-## address
+## addresses
 
 | column           | Type      | Options
 | ---------------- | --------- | --------------------------------
 | post_codo        | string    | null: false
-| prefecture_id    | integer   | null: false
+| shipping_id      | integer   | null: false
 | city             | string    | null: false
 | addresses        | string    | null: false
 | building         | string    | 
 | phone            | string    | null: false
-| purchases_id     | integer   | null: false, foreign_key: true
+| order_id         | integer   | null: false, foreign_key: true
 
 ### Association
 
 - belongs_to :purchase
 
-## purchases
+## orders
 
 | column           | Type      | Options
 | ---------------- | --------- | -----------
