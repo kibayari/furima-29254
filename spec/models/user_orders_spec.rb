@@ -52,5 +52,11 @@ RSpec.describe UserOrders, type: :model do
       @user_orders.building = ""
       expect(@user_orders).to be_valid
     end
+
+    it 'tokenがない場合、購入できない' do
+      @user_orders.token = nil
+      @user_orders.valid?
+      expect(@user_orders.errors.full_messages).to include("Token can't be blank")
+    end
   end
 end
